@@ -6,14 +6,32 @@
 3. Work under PowerShell of M$ Windows, use the most of " **Get-content** *File* | **Set-content** *FileOutPut* "
 4. Extract the first colon of that "Appendix A" file by
    - using " **(-replace '~.*')** "   to erase all characters after the first separator:"~".
+   ~~~
+   (Get-content FileName) -replace '~.*' | Set-content FileOutPut
+   ~~~
 5. Make Each word in each line by replace in-word space Carriage Return+ Line Feed
    - using " **(-replace " ","`r`n")**
+   ~~~
+   (Get-content FileName) -replace " ","`r`n" | Set-content FileOutPut
+   ~~~
 6. If a word is leading by numbers or special characters, remove them 
    - using " **(-replace '[0-9,;"\x27\(\)\-]', '' )**
-7. Keep first characre upper Case and the other character to lower cases
+   ~~~
+   (Get-content FileName) -replace '[0-9,;"\x27\(\)\-]', '' | Set-content FileOutPut
+   ~~~
+7.Chain the above command with Pipe.
+   ~~~
+   (Get-content FileName) -replace '~.*'  -replace " ","`r`n" -replace '[0-9,;"\x27\(\)\-]'  | Set-content FileOutPut
+   ~~~
+8. Sort and remove dublicate in the file list contents.
+   - using " **( Sort-Object -Unique)**
+   ~~~
+   (Get-Content FileName) | Sort-Object -Unique | Set-Content FileOutPut
+   ~~~
+9. Keep first characre upper Case and the other character to lower cases
    - using " **(  ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() } )**
-8. Chain the above command with Pipe.
    ~~~
-   Get-content *File* | -replace '~.*' | -replace " ","`r`n" | -replace '[0-9,;"\x27\(\)\-]', '' |  ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() } | Set-   content *FileOutPut*
+   (Get-Content FileName) | ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() })} | Set-Content FileOutPut
    ~~~
-9.  
+10. 
+   
