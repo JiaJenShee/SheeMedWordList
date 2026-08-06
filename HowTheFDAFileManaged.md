@@ -1,7 +1,7 @@
 # How The FDA File Is Managed in This Project # 
 1. Download the FDA file to a certain folder
    - source:[ FDA Orange Boob Data Files ](https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files)
-   - source File:[ Appendix A: Product Name Index ](https://www.fda.gov/media/71494/download?attachment)
+   - source File:[The compressed (.ZIP) data file](https://www.fda.gov/media/76860/download?attachment)
 
 2. Work under PowerShell of M$ Windows, use the most of " **Get-content** *File* | **Set-content** *FileOutPut* "
 3. Extract the first colon of that "Appendix A" file by
