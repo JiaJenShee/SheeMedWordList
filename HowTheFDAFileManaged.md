@@ -19,19 +19,19 @@
    ~~~
    (Get-content FileName) -replace '[0-9,;"\x27\(\)\-]', '' | Set-content FileOutPut
    ~~~
-7.Chain the above command with Pipe.
+7.Chain the above command together or step by step .
    ~~~
-   (Get-content FileName) -replace '~.*'  -replace " ","`r`n" -replace '[0-9,;"\x27\(\)\-]'  | Set-content FileOutPut
+   (Get-content FileName) -replace '~.*'  -replace " ","`r`n" -replace '[0-9,;"\x27\(\)\-]'  | Set-content FileOutPut1
    ~~~
 8. Sort and remove dublicate in the file list contents.
    - using " **( Sort-Object -Unique)**
    ~~~
-   (Get-Content FileName) | Sort-Object -Unique | Set-Content FileOutPut
+   (Get-Content FileOutPut1) | Sort-Object -Unique | Set-Content FileOutPut2
    ~~~
 9. Keep first characre upper Case and the other character to lower cases
    - using " **(  ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() } )**
    ~~~
-   (Get-Content FileName) | ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() })} | Set-Content FileOutPut
+   (Get-Content FileOutPut2) | ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() })} | Set-Content FileOutPutFinal
    ~~~
 10. 
    
