@@ -30,7 +30,7 @@
    ~~~
    or
    ~~~
-   sed 's/[0-9,;"'\''() -]//g' FileName > FileOutPut
+   sed "s/[0-9,;\"\x27() -]//g" FileName > FileOutPut
    ~~~
 
 8. Chain the above command together or step by step 
@@ -39,7 +39,7 @@
    ~~~
    or
    ~~~
-    sed -e 's/~.*//' -e 's/ /\r\n/g' -e  's/[0-9,;"'\''() -]//g' FileName > FileOutPut
+    sed -e 's/~.*//' -e 's/ /\r\n/g' -e  "s/[0-9,;\"\x27() -]//g" FileName > FileOutPut
    ~~~
 10. Sort and remove duplicates in the file list contents.
    - using " **( Sort-Object -Unique)**
@@ -62,5 +62,5 @@
 11. Final Check the result.
 12. may work in one command under Linux 
    ~~~
-  sed -e 's/~.*//' -e 's/ /\r\n/g' -e  's/[0-9,;"'\''() -]//g' FileName | sort -u | sed 's/^\(.\)\(.*\)/\1\L\2/' > FileOutPutFinal
+  sed -e 's/~.*//' -e 's/ /\r\n/g' -e  "s/[0-9,;\"\x27() -]//g" FileName | sort -u | sed 's/^\(.\)\(.*\)/\1\L\2/' > FileOutPutFinal
    ~~~
