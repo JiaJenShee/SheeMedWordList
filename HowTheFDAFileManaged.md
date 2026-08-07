@@ -27,7 +27,7 @@
    or
    - Linux:
    ~~~
-   sed 's/ /\r\n/g' FileName > FileOutPut
+   sed 's/ /\n/g' FileName > FileOutPut
    ~~~
 6. If a word is leading by numbers or special characters, remove those characters 
    - Powershell:
@@ -48,7 +48,7 @@
    or
    - Linux:
    ~~~
-    sed -e 's/~.*//' -e 's/ /\r\n/g' -e  "s/[0-9,;\"\x27() -]//g" FileName > FileOutPut
+    sed -e 's/~.*//' -e 's/ /\n/g' -e  "s/[0-9,;\"\x27() -]//g" FileName > FileOutPut
    ~~~
 8. Sort and remove duplicates in the file list contents.
    - Powershell: using " **( Sort-Object -Unique)**
@@ -73,5 +73,5 @@
 
 NOTE : May work in one command under ***Linux***
    ~~~
-  sed -e 's/~.*//' -e 's/ /\r\n/g' -e "s/[0-9,;\"\x27() -]//g" FileName | sort -u | sed -e 's/^\(.\)\(.*\)/\1\L\2/' > FileOutPutFinal
+  sed -e 's/~.*//' -e 's/ /\n/g' -e "s/[0-9,;\"\x27() -]//g" FileName | sort -u | sed -e 's/^\(.\)\(.*\)/\1\L\2/' > FileOutPutFinal
    ~~~
