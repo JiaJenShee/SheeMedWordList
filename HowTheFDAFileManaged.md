@@ -60,3 +60,7 @@
    sed 's/^\(.\)\(.*\)/\1\L\2/' FileOutPut2 > FileOutPutFinal
    ~~~
 11. Final Check the result.
+12. may work in one command under Linux 
+   ~~~
+  sed -e 's/~.*//' -e 's/ /\r\n/g' -e  's/[0-9,;"'\''() -]//g' FileName | sort -u | sed 's/^\(.\)\(.*\)/\1\L\2/' > FileOutPutFinal
+   ~~~
