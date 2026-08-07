@@ -7,7 +7,11 @@ This, by adding active ingredient list from **Appendix A: Product Name Index** o
 **Hunspell Dictionary of English Medical Terms** file  had been know to be created from merge files of below : 
 - **OpenMedSpel** by R. Robinson of e-MedTools
 - **MTH-Med-Spel-Chek** by Rajasekharan N. of MT-Herald.
-was last updated at 2017
+
+It was last updated in 2017. 
+
+We raised the project to try adding US-FDA medication information to enhance the dictionary.
+
 ### Authors 
 Let’s show respect to all of them
 - (c) 2014-2017 Aristotelis P. <https://github.com/Glutanimate>
