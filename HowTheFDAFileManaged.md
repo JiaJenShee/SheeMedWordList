@@ -7,38 +7,56 @@
 
 3. Work under PowerShell of M$ Windows, use the most of " **Get-content** *File* | **Set-content** *FileOutPut* "
 
-4. Extract the first colon of that "Appendix A" file by
-   - using " **(-replace '~.*')** "   to erase all characters after the first separator:"~".
+4. Extract the first colon of that "Appendix A" file by erasing all characters after the first separator:"~".
    ~~~
    (Get-content FileName) -replace '~.*' | Set-content FileOutPut
    ~~~
+   or
+   ~~~
+   sed 's/~.*//' FileName > FileOutPut
+   ~~~
 
-5. Make Each word in each line by replace in-word space Carriage Return+ Line Feed
-   - using " **(-replace " ","`r`n")**
+5. Make one word in each line by replacing in-word spaces with Carriage Return + Line Feed
    ~~~
    (Get-content FileName) -replace " ","`r`n" | Set-content FileOutPut
    ~~~
-   
-6. If a word is leading by numbers or special characters, remove them 
-   - using " **(-replace '[0-9,;"\x27\(\)\-]', '' )**
+   or
+   ~~~
+   sed 's/ /\r\n/g' FileName > FileOutPut
+   ~~~
+7. If a word is leading by numbers or special characters, remove those characters 
    ~~~
    (Get-content FileName) -replace '[0-9,;"\x27\(\)\-]', '' | Set-content FileOutPut
    ~~~
+   or
+   ~~~
+   sed 's/[0-9,;"'\''() -]//g' FileName > FileOutPut
+   ~~~
 
-7. Chain the above command together or step by step .
+8. Chain the above command together or step by step 
    ~~~
    (Get-content FileName) -replace '~.*'  -replace " ","`r`n" -replace '[0-9,;"\x27\(\)\-]'  | Set-content FileOutPut1
    ~~~
-
-8. Sort and remove dublicate in the file list contents.
+   or
+   ~~~
+    sed -e 's/~.*//' -e 's/ /\r\n/g' -e  's/[0-9,;"'\''() -]//g' FileName > FileOutPut
+   ~~~
+10. Sort and remove duplicates in the file list contents.
    - using " **( Sort-Object -Unique)**
    ~~~
    (Get-Content FileOutPut1) | Sort-Object -Unique | Set-Content FileOutPut2
    ~~~
-
-9. Keep first characre upper Case and the other character to lower cases
+   or 
+   ~~~
+   sort -u FileOutPut1 > FileOutPut2
+   ~~~
+11. Keep first characre upper Case and the other character to lower cases
    - using " **(  ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() } )**
    ~~~
    (Get-Content FileOutPut2) | ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() })} | Set-Content FileOutPutFinal
    ~~~
-10. Final Check the result.
+   or 
+   ~~~
+   sed 's/^\(.\)\(.*\)/\1\L\2/' FileOutPut2 > FileOutPutFinal
+   ~~~
+11. Final Check the result.
