@@ -10,28 +10,24 @@
 3. work under Linux, use the most of " **sed** 's/A/B/g *File*>  *FileOutPut* " and **sort**
 4. Extract the first colon of that "products.txt" file by erasing all characters after the first separator:"~".
    ~~~
-   sed 's/~.*//' FileName > FileOutPut
+   sed 's/~.*//' FileName > FileOutPut1
    ~~~
 5. Make one word in each line by replacing in-word spaces with Line Feed \n
    ~~~
-   sed 's/ /\n/g' FileName > FileOutPut
+   sed 's/ /\n/g' FileOutPut1 > FileOutPut2
    ~~~
 6. If a word is leading by numbers or special characters, remove those characters 
    ~~~
-   sed "s/[0-9,;\"\x27() -]//g" FileName > FileOutPut
+   sed "s/[0-9,;\"\x27() -]//g" FileOutPut2 > FileOutPut3
    ~~~
-7. Chain the above command together or step by step 
+7. Sort and remove duplicates in the file list contents.
    ~~~
-    sed -e 's/~.*//' -e 's/ /\n/g' -e  "s/[0-9,;\"\x27() -]//g" FileName > FileOutPut
+   sort -u FileOutPut3 > FileOutPut4
    ~~~
-8. Sort and remove duplicates in the file list contents.
-   ~~~
-   sort -u FileOutPut1 > FileOutPut2
-   ~~~
-9. Keep first characre upper Case and the other character to lower cases
+8. Keep first characre upper Case and the other character to lower cases
    - use a high-level Regular Expression rule: ***"group"*** concept !
    ~~~
-   sed 's/^\(.\)\(.*\)/\1\L\2/' FileOutPut2 > FileOutPutFinal
+   sed 's/^\(.\)\(.*\)/\1\L\2/' FileOutPut4 > FileOutPutFinal
    ~~~
 
 NOTE : May work in one command  using pipe-line
@@ -45,27 +41,23 @@ may use the most of " **Get-content** *File* | **Set-content** *FileOutPut* "
 
 4. Extract the first colon of that "Appendix A" file by erasing all characters after the first separator:"~".
    ~~~
-   (Get-content FileName) -replace '~.*' | Set-content FileOutPut
+   (Get-content FileName) -replace '~.*' | Set-content FileOutPut1
    ~~~ 
 5. Make one word in each line by replacing in-word spaces with Carriage Return + Line Feed
    ~~~
-   (Get-content FileName) -replace " ","`r`n" | Set-content FileOutPut
+   (Get-content FileOutPut1) -replace " ","`r`n" | Set-content FileOutPut2
    ~~~
 6. If a word is leading by numbers or special characters, remove those characters 
    ~~~
-   (Get-content FileName) -replace '[0-9,;"\x27\(\)\-]', '' | Set-content FileOutPut
+   (Get-content FileOutPut2) -replace '[0-9,;"\x27\(\)\-]', '' | Set-content FileOutPut3
    ~~~
-7. May chain the above command together or step by step 
-   ~~~
-   (Get-content FileName) -replace '~.*'  -replace " ","`r`n" -replace '[0-9,;"\x27\(\)\-]'  | Set-content FileOutPut1
-   ~~~
-8. Sort and remove duplicates in the file list contents.
+7. Sort and remove duplicates in the file list contents.
    -  using " **( Sort-Object -Unique)**
    ~~~
-   (Get-Content FileOutPut1) | Sort-Object -Unique | Set-Content FileOutPut2
+   (Get-Content FileOutPut3) | Sort-Object -Unique | Set-Content FileOutPut4
    ~~~
-9. Keep the first character uppercase and the other characters lowercase
+8. Keep the first character uppercase and the other characters lowercase
    - use **(  ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() } )**
    ~~~
-   (Get-Content FileOutPut2) | ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() })} | Set-Content FileOutPutFinal
+   (Get-Content FileOutPut4) | ForEach-Object { [regex]::Replace($_, '^(.)(.*)', { param($m) $m.Groups[1].Value + $m.Groups[2].Value.ToLower() })} | Set-Content FileOutPutFinal
    ~~~
