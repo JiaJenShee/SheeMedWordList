@@ -2,27 +2,29 @@
 
 ## Overview
 
-This, by adding active ingredient list from **Appendix A: Product Name Index** of FDA Orange Book, is a brief update on **Hunspell Dictionary of English Medical Terms** file <https://github.com/glutanimate/hunspell-en-med-glut/blob/master/en_med_glut.dic>.
+By modifying some words and adding an active ingredient list from **products.txt** of the FDA Orange Book, this is a brief update on the **wordlist.txt** in **the wordlist-medicalterms-en repositore** on GitHub <https://github.com/glutanimate/wordlist-medicalterms-en> of great work from Aristotelis P (known as **Glutanimate**) <https://github.com/glutanimate >  <https://glutanimate.com>.
 
-**Hunspell Dictionary of English Medical Terms** file  had been know to be created from merge files of below : 
+**wordlist-medicalterms-en** was known to have been created from merge files of the following: 
 - **OpenMedSpel** by R. Robinson of e-MedTools
 - **MTH-Med-Spel-Chek** by Rajasekharan N. of MT-Herald.
 
-It was last updated in 2017. 
+It was last updated in 2018. ( 8 years before 2026)
 
 We raised the project to try adding US-FDA medication information to enhance the dictionary.
 
 ### Authors 
-Let’s show respect to all of them
+At the beginning, let’s show the greatest respect to all of them
 - (c) 2014-2017 Aristotelis P. <https://github.com/Glutanimate>
 - (c) 2007-2014 R. Robinson <info@e-medtools.com>, 
 - (c) 2009-2014 Rajasekharan N. <https://plus.google.com/u/0/+Rajasekharan-N/>
-- and the FDA of the US 
+- and the FDA of the US
+  
+(c) 2026 JaiJen Shee, Urologist MD, Taiwan
 
 ### Original Sources:
 - OpenMedSpel by R. Robinson of e-MedTools (Version 2.0.0, released 2014-01-21)  <http://www.e-medtools.com/openmedspel.html>
 - MTH-Med-Spel-Chek by Rajasekharan N. of MT-Herald (released 2014-04-02) <http://mtherald.com/free-medical-spell-checker-for-microsoft-word-custom-dictionary/>
-- hunspell-en-med-glut by Aristotelis P. of GitHub repositories (last updated at Jan-5-2017) <https://github.com/glutanimate/hunspell-en-med-glut>
-
+- wordlist-medicalterms-en by Aristotelis P. of glutanimate.com  (released 2014) <https://github.com/glutanimate/wordlist-medicalterms-en>
+- US-FDA Orange Book <https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files> <https://www.fda.gov/media/76860/download?attachment>
 
 ### License:            GNU GPL v3 (see LICENSEs for more information)
