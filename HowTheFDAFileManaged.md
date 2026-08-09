@@ -1,7 +1,7 @@
 # How The FDA File Is Managed in This Project # 
 
 1. Download the FDA file to a certain folder
-   - source:[ FDA Orange Boob Data Files ](https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files)
+   - source:[ FDA Orange Book Data Files ](https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files)
    - source File:[The compressed (.ZIP) data file](https://www.fda.gov/media/76860/download?attachment)
 
 2. Extract the "products.txt" file to a work folder
