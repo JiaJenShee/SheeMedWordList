@@ -1,3 +1,4 @@
+# How the *Updated Word List: SheeMedWordList.txt* File Is Managed in This Project # 
 Well prepare the **products list of FDA** as our **HowTheFDAFileManaged.md** mentioned
 
 Download the wordlist.txt file to a work folder, preferably the same folder as the **products list of FDA**
