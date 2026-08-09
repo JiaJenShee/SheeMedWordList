@@ -7,5 +7,5 @@ Download the wordlist.txt file to a work folder, preferably the same folder as t
 
 ## Using Linux ##
 ~~~
-cat  wordlist.txt Products_Active_Integrant_List_2026_XX.txt  | sort -u > SheeMedWordList.txt
+cat  wordlist.txt Products_Active_Integrant_List_2026_XX.txt  | sort -u > SheeMedWordList_2026_XX.txt
 ~~~
