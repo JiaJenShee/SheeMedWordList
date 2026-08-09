@@ -13,13 +13,15 @@ It was last updated in 2018. ( 8 years before 2026)
 We raised the project to try adding US-FDA medication information to enhance the dictionary.
 
 ### Authors 
-At the beginning, let’s show the greatest respect to all of them
+(c) 2026 JaiJen Shee, Urologist MD, Taiwan
+
+More important, let’s show the greatest respect to all of them
 - (c) 2014-2017 Aristotelis P. <https://github.com/Glutanimate>
 - (c) 2007-2014 R. Robinson <info@e-medtools.com>, 
 - (c) 2009-2014 Rajasekharan N. <https://plus.google.com/u/0/+Rajasekharan-N/>
 - and the FDA of the US
   
-(c) 2026 JaiJen Shee, Urologist MD, Taiwan
+
 
 ### Original Sources:
 - OpenMedSpel by R. Robinson of e-MedTools (Version 2.0.0, released 2014-01-21)  <http://www.e-medtools.com/openmedspel.html>
